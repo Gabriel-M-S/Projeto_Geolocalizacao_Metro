@@ -35,16 +35,15 @@ Ao invés de coordenadas exatas, o sistema identifica **zonas de proximidade** c
 
 ```
 📂 TCC_Geolocalizacao_Metro
-├── 📜 README.md
-├── 📄 TCC MASTER BLASTER PRINCIPAL.docx     <- Monografia
-├── 📄 Apresentação_TCC_Metro_VF.pptx        <- Slides finais
-├── 📄 tccfinal1_1.ino                        <- Código embarcado no ESP32-C6
-├── 📄 mqtt_receiverV2.py                    <- Servidor MQTT para coleta dos dados
-├── 📄 app_dash_mqttV5FinalLogos.py          <- Dashboard Python com mapa e incidentes
-├── 📄 dados_esps.json                        <- Dados dos dispositivos (gerado em runtime)
-├── 📄 esp_categorias.json                    <- Categorização dos dispositivos (opcional)
-├── 📄 LICENSE                                <- Licença do projeto
-├── 📄 METROFEI.pbix                          <- Relatório Power BI com visualização dos dados
+├── 📜 README.md                                <- Documentação do projeto
+├── 📄 LICENSE                                  <- Licença MIT
+├── 📄 TCC GEOLOCALIZACAO.docx                  <- Monografia completa
+├── 📄 Apresentação_TCC_Metro_VF.pptx           <- Apresentação final
+├── 📄 METROFEI.pbix                            <- Relatório Power BI com dados do sistema
+├── 📄 tccfinal.ino                             <- Código embarcado no ESP32-C6
+├── 📄 mqtt_receiverV2.py                       <- Backend MQTT para coleta de dados
+├── 📄 app_dash_mqttV5FinalLogos.py             <- Dashboard Python com visualização dos agentes
+└── 📄 dados_esps.json                          <- Gerado automaticamente em tempo de execução
 ```
 
 ---
@@ -92,13 +91,13 @@ Acesse via navegador: [http://localhost:8050](http://localhost:8050)
 
 ## ⚙️ Tecnologias e Ferramentas
 
-| Categoria          | Ferramenta                          |
-|--------------------|-------------------------------------|
-| **Hardware**        | ESP32-C6, OLED, Li-Ion, Boost       |
-| **Software embarcado** | ESP-IDF, C/C++ (Arduino)         |
-| **Backend**         | Python, MQTT (Mosquitto)            |
-| **Dashboard**       | Python Dash, Folium, Streamlit      |
-| **Visualização extra** | Power BI, Elipse E3             |
+| Categoria              | Ferramenta                          |
+|------------------------|-------------------------------------|
+| **Hardware**           | ESP32-C6, OLED, Li-Ion, Boost       |
+| **Software embarcado** | ESP-IDF, C/C++ (Arduino)            |
+| **Backend**            | Python, MQTT (Mosquitto)            |
+| **Dashboard**          | Python Dash, Folium, Streamlit      |
+| **Visualização extra** | Power BI, Elipse E3                 |
 
 ---
 
