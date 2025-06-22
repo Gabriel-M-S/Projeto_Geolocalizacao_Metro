@@ -120,8 +120,7 @@ Acesse via navegador: [http://localhost:8050](http://localhost:8050)
 
 ## 📄 Licença
 
-Adicione uma licença de sua escolha no arquivo `LICENSE`.  
-Sugestões: [MIT](https://opensource.org/licenses/MIT), [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+Este projeto está licenciado sob os termos da [Licença MIT](https://opensource.org/licenses/MIT). Veja o arquivo [`LICENSE`](./LICENSE) para mais detalhes.
 
 ---
 
