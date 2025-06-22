@@ -36,13 +36,11 @@ Ao invés de coordenadas exatas, o sistema identifica **zonas de proximidade** c
 ```
 📂 TCC_Geolocalizacao_Metro
 ├── 📜 README.md
-├── 📄 TCC MASTER BLASTER PRINCIPAL.docx     <- Monografia
+├── 📄 TCC GEOLOCALIZACAO.docx     <- Monografia
 ├── 📄 Apresentação_TCC_Metro_VF.pptx        <- Slides finais
-├── 📄 tccfinal1_1.ino                        <- Código embarcado no ESP32-C6
+├── 📄 tccfinal.ino                        <- Código embarcado no ESP32-C6
 ├── 📄 mqtt_receiverV2.py                    <- Servidor MQTT para coleta dos dados
 ├── 📄 app_dash_mqttV5FinalLogos.py          <- Dashboard Python com mapa e incidentes
-├── 📄 dados_esps.json                        <- Dados dos dispositivos (gerado em runtime)
-├── 📄 esp_categorias.json                    <- Categorização dos dispositivos (opcional)
 └── 📄 LICENSE                                <- Licença do projeto (adicionar)
 ```
 
