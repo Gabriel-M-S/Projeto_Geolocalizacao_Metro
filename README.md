@@ -3,6 +3,8 @@
 > Projeto de TCC apresentado ao Centro Universitário FEI — Engenharia Elétrica  
 > Foco: Geolocalização indoor via Wi-Fi 6 usando ESP32-C6 no Metrô de São Paulo
 
+---
+
 ## 👥 Autores
 
 - Erich Ramos Borges  
@@ -29,61 +31,103 @@ Ao invés de coordenadas exatas, o sistema identifica **zonas de proximidade** c
 
 ---
 
-📟 Código do Microcontrolador (ESP32-C6)
-Utiliza Wi-Fi Scan para identificar BSSID e RSSI dos APs
+## 📁 Estrutura do Projeto
 
-Envia via MQTT no formato client_id|bssid no tópico esp32/bssid
+```
+📂 TCC_Geolocalizacao_Metro
+├── 📜 README.md
+├── 📄 TCC MASTER BLASTER PRINCIPAL.docx     <- Monografia
+├── 📄 Apresentação_TCC_Metro_VF.pptx        <- Slides finais
+├── 📄 tccfinal1_1.ino                        <- Código embarcado no ESP32-C6
+├── 📄 mqtt_receiverV2.py                    <- Servidor MQTT para coleta dos dados
+├── 📄 app_dash_mqttV5FinalLogos.py          <- Dashboard Python com mapa e incidentes
+├── 📄 dados_esps.json                        <- Dados dos dispositivos (gerado em runtime)
+├── 📄 esp_categorias.json                    <- Categorização dos dispositivos (opcional)
+└── 📄 LICENSE                                <- Licença do projeto (adicionar)
+```
 
-🖥️ Executar o Dashboard
-bash
-Copiar
-Editar
-python app_dash_mqttV5FinalLogos.py
-Acesse via navegador em http://localhost:8050
+---
 
-🧠 Backend MQTT (coleta)
-bash
-Copiar
-Editar
+## 🚀 Como Executar
+
+### 📟 Código do Microcontrolador (ESP32-C6)
+
+- Utiliza Wi-Fi Scan para identificar BSSID e RSSI dos APs
+- Envia via MQTT no formato:  
+  ```
+  client_id|bssid
+  ```
+- Tópico utilizado: `esp32/bssid`
+
+### 🧠 Backend MQTT (coleta dos dados)
+
+```bash
 python mqtt_receiverV2.py
-Coleta os dados enviados pelos dispositivos e armazena em dados_esps.json.
+```
 
-🗺️ Funcionalidades
-Mapeamento de agentes por zona Wi-Fi (sem coordenadas GPS)
+Coleta os dados dos dispositivos conectados e salva no arquivo `dados_esps.json`.
 
-Interface com mapa em tempo real (linha do Metrô e agentes)
+### 🖥️ Executar o Dashboard
 
-Registro e categorização de incidentes
+```bash
+python app_dash_mqttV5FinalLogos.py
+```
 
-Identificação automática do agente mais próximo
+Acesse via navegador: [http://localhost:8050](http://localhost:8050)
 
-Estimativa de tempo de resposta
+---
 
-LGPD Compliance: uso ético dos dados de localização
+## 🗺️ Funcionalidades
 
-⚙️ Tecnologias e Ferramentas
-Categoria	Ferramenta
-Hardware	ESP32-C6, OLED, Li-Ion, Boost
-Software embarcado	ESP-IDF, C/C++ (Arduino)
-Backend	Python, MQTT (Mosquitto)
-Dashboard	Python Dash, Folium, Streamlit
-Visualização extra	Power BI, Elipse E3
+- Mapeamento de agentes por zona Wi-Fi (sem coordenadas GPS)
+- Interface com mapa em tempo real (linha do Metrô e agentes)
+- Registro e categorização de incidentes
+- Identificação automática do agente mais próximo
+- Estimativa de tempo de resposta
+- LGPD Compliance: uso ético dos dados de localização
 
-✅ Resultados
-Funcionamento estável em ambiente indoor
+---
 
-Interface funcional para agentes e operadores
+## ⚙️ Tecnologias e Ferramentas
 
-Autonomia estimada: ~11 horas
+| Categoria          | Ferramenta                          |
+|--------------------|-------------------------------------|
+| **Hardware**        | ESP32-C6, OLED, Li-Ion, Boost       |
+| **Software embarcado** | ESP-IDF, C/C++ (Arduino)         |
+| **Backend**         | Python, MQTT (Mosquitto)            |
+| **Dashboard**       | Python Dash, Folium, Streamlit      |
+| **Visualização extra** | Power BI, Elipse E3             |
 
-Baixo custo unitário
+---
 
-Código modular e expansível
+## ✅ Resultados
 
-🔐 Considerações Éticas e LGPD
-Dados só coletados para fins operacionais
+- Funcionamento estável em ambiente indoor
+- Interface funcional para agentes e operadores
+- Autonomia estimada: **~11 horas**
+- Baixo custo unitário
+- Código modular e expansível
 
-Consentimento e transparência priorizados
+---
 
-Conformidade com a Lei Geral de Proteção de Dados (LGPD)
+## 🔐 Considerações Éticas e LGPD
 
+- Dados coletados apenas para fins operacionais
+- Consentimento e transparência priorizados
+- Conformidade com a **Lei Geral de Proteção de Dados (LGPD)**
+
+---
+
+## 📄 Licença
+
+Adicione uma licença de sua escolha no arquivo `LICENSE`.  
+Sugestões: [MIT](https://opensource.org/licenses/MIT), [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+---
+
+## 📬 Contato
+
+📧 Prof. Marco Antônio Assis de Melo — marco.melo@fei.edu.br  
+📫 Contribuições: via Pull Request ou Issues neste repositório
+
+---
