@@ -36,12 +36,15 @@ Ao invés de coordenadas exatas, o sistema identifica **zonas de proximidade** c
 ```
 📂 TCC_Geolocalizacao_Metro
 ├── 📜 README.md
-├── 📄 TCC GEOLOCALIZACAO.docx     <- Monografia
+├── 📄 TCC MASTER BLASTER PRINCIPAL.docx     <- Monografia
 ├── 📄 Apresentação_TCC_Metro_VF.pptx        <- Slides finais
-├── 📄 tccfinal.ino                        <- Código embarcado no ESP32-C6
+├── 📄 tccfinal1_1.ino                        <- Código embarcado no ESP32-C6
 ├── 📄 mqtt_receiverV2.py                    <- Servidor MQTT para coleta dos dados
 ├── 📄 app_dash_mqttV5FinalLogos.py          <- Dashboard Python com mapa e incidentes
-└── 📄 LICENSE                                <- Licença do projeto (adicionar)
+├── 📄 dados_esps.json                        <- Dados dos dispositivos (gerado em runtime)
+├── 📄 esp_categorias.json                    <- Categorização dos dispositivos (opcional)
+├── 📄 LICENSE                                <- Licença do projeto
+├── 📄 METROFEI.pbix                          <- Relatório Power BI com visualização dos dados
 ```
 
 ---
@@ -83,6 +86,7 @@ Acesse via navegador: [http://localhost:8050](http://localhost:8050)
 - Identificação automática do agente mais próximo
 - Estimativa de tempo de resposta
 - LGPD Compliance: uso ético dos dados de localização
+- Visualização adicional com **Power BI** para análises mais ricas e interativas
 
 ---
 
