@@ -56,7 +56,7 @@ A estrutura do banco de dados é composta por três tabelas principais:
 
 ### 🧩 Modelo Relacional
 
-![Modelo ER do Banco de Dados](./ff1a5eba-a619-48ea-85c6-a4135e2ece46.png)
+![base_metro_1](https://github.com/user-attachments/assets/9da62804-f13c-4ad2-976e-9ae230c57160)
 
 ### 🏗️ Tabelas
 
