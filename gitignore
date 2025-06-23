@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Arquivos temporários
+*.log
+*.tmp
+*.temp
+
+# Dados gerados
+*.json
+*.db
+*.sqlite
+*.csv
+
+# Ambientes virtuais
+.env/
+.venv/
+env/
+venv/
+ENV/
+
+# IDEs e editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arduino build
+*.ino.*
+*.hex
+*.elf
+
+# Power BI cache
+*.pbix~
+*.pbit~
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
