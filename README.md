@@ -28,135 +28,114 @@ Este projeto propõe o desenvolvimento de um sistema de geolocalização em temp
 - Comunicação via protocolo MQTT
 - Armazenamento estruturado em banco de dados relacional
 
-Ao invés de coordenadas exatas, o sistema identifica **zonas de proximidade** com base no RSSI (Received Signal Strength Indicator) dos APs mapeados.
-
 ---
 
 ## 📁 Estrutura do Projeto
 
 ```
 📂 TCC_Geolocalizacao_Metro
-├── 📜 README.md                              <- Documentação do projeto
-├── 📄 LICENSE                                <- Licença MIT
-├── 📄 TCC GEOLOCALIZACAO.docx                <- Monografia completa
-├── 📄 Apresentação_TCC_Metro_VF.pptx         <- Apresentação final
-├── 📄 METROFEI.pbix                          <- Relatório Power BI
-├── 📄 Query_Criacao_Banco_de_Dados.sql       <- Script de criação do banco de dados
-├── 📄 tccfinal.ino                           <- Código embarcado no ESP32-C6
-├── 📄 mqtt_receiverV4.py                     <- Backend MQTT atualizado
-├── 📄 app_dash_mqttV9Final.py                <- Dashboard Python com visualização e integração ao banco
-└── 📄 dados_esps.json                        <- Gerado automaticamente em tempo de execução
+├── .gitignore                              <- Ignora arquivos desnecessários no Git
+├── README.md                               <- Documentação principal do projeto
+├── LICENSE                                 <- Licença MIT
+├── requirements.txt                        <- Dependências Python
+├── TCC GEOLOCALIZACAO.docx                 <- Monografia final
+├── Apresentação_TCC_Metro_VF.pptx          <- Slides da apresentação
+├── METROFEI.pbix                           <- Relatório em Power BI
+├── Query_Criacao_Banco_de_Dados.sql        <- Script SQL do banco de dados
+├── tccfinal.ino                            <- Código embarcado no ESP32-C6
+├── mqtt_receiverV4.py                      <- Backend MQTT para recepção de dados
+├── app_dash_mqttV9Final.py                 <- Dashboard com mapa e conexão ao banco
+└── dados_esps.json                         <- Arquivo gerado com dados de localização
 ```
 
 ---
 
 ## 🗃️ Banco de Dados
 
-A estrutura do banco de dados é composta por três tabelas principais:
+- **BASE_GEOLOCALIZACAO**: Registro das mensagens recebidas dos dispositivos  
+- **DEPARA_BSSID_ESTACAO**: Relaciona BSSID com estações  
+- **ESTACAO_COORDENADAS**: Coordenadas das estações para visualização em mapa
 
-### 🧩 Modelo Relacional
-
-![base_metro_1](https://github.com/user-attachments/assets/4e83080d-5a78-4c4d-bc41-c7fa61db3ae1)
-
-### 🏗️ Tabelas
-
-- **BASE_GEOLOCALIZACAO**  
-  Armazena os dados de localização recebidos dos dispositivos.
-
-- **DEPARA_BSSID_ESTACAO**  
-  Faz a correspondência entre BSSID (AP) e o nome da estação.
-
-- **ESTACAO_COORDENADAS**  
-  Guarda as coordenadas (latitude/longitude) vinculadas a cada estação.
-
-### 📜 Script de Criação
-
-O script SQL `Query_Criacao_Banco_de_Dados.sql` permite a criação de toda a estrutura relacional, incluindo as chaves e relacionamentos.
+Use o script `Query_Criacao_Banco_de_Dados.sql` para criar toda a estrutura.
 
 ---
 
 ## 🚀 Como Executar
 
-### 📟 Código do Microcontrolador (ESP32-C6)
+### 📟 ESP32-C6
 
-- Utiliza Wi-Fi Scan para identificar BSSID e RSSI dos APs
-- Envia via MQTT no formato:  
-  ```
-  client_id|bssid
-  ```
-- Tópico utilizado: `esp32/bssid`
+- Envia mensagens via MQTT no formato `client_id|bssid` para o tópico `esp32/bssid`
 
-### 🧠 Backend MQTT (coleta dos dados)
+### 🧠 Coletor MQTT (Python)
 
 ```bash
 python mqtt_receiverV4.py
 ```
 
-Salva os dados recebidos no arquivo JSON e/ou insere no banco de dados, conforme a configuração.
+Armazena os dados recebidos em arquivo e/ou banco de dados.
 
-### 🖥️ Executar o Dashboard
+### 🖥️ Dashboard
 
 ```bash
 python app_dash_mqttV9Final.py
 ```
 
-Acesse via navegador: [http://localhost:8050](http://localhost:8050)
+Interface com mapa, visualização de agentes, incidentes e tempo de resposta.  
+Acesse em: [http://localhost:8050](http://localhost:8050)
 
 ---
 
 ## 🗺️ Funcionalidades
 
-- Mapeamento de agentes por zona Wi-Fi (sem coordenadas GPS)
-- Interface com mapa em tempo real
+- Visualização em tempo real de agentes por zona Wi-Fi
 - Registro e categorização de incidentes
-- Estimativa de tempo de resposta
-- LGPD Compliance: uso ético dos dados
-- Armazenamento estruturado e persistente em banco relacional
-- Relatórios com Power BI
+- Cálculo do agente mais próximo
+- Análise por Power BI
+- Armazenamento em banco relacional
+- Conformidade com LGPD
 
 ---
 
-## ⚙️ Tecnologias e Ferramentas
+## ⚙️ Tecnologias Utilizadas
 
-| Categoria              | Ferramenta                          |
-|------------------------|-------------------------------------|
-| **Hardware**           | ESP32-C6, OLED, Li-Ion, Boost       |
-| **Software embarcado** | ESP-IDF, C/C++ (Arduino)            |
-| **Backend**            | Python, MQTT (Mosquitto)            |
-| **Dashboard**          | Python Dash, Folium, Streamlit      |
-| **Banco de dados**     | SQL (PostgreSQL ou SQLite)          |
-| **Visualização extra** | Power BI, Elipse E3                 |
+| Categoria              | Ferramentas                          |
+|------------------------|--------------------------------------|
+| Hardware               | ESP32-C6, Li-Ion, OLED               |
+| Backend MQTT           | Python, paho-mqtt                    |
+| Dashboard              | Dash, Folium, Bootstrap              |
+| Banco de Dados         | PostgreSQL / SQLite (flexível)       |
+| Visualização Analítica | Power BI, Elipse E3                  |
 
 ---
 
 ## ✅ Resultados
 
-- Funcionamento estável em ambiente indoor
-- Interface funcional com banco de dados
-- Visualização em tempo real com Dash
-- Análises em Power BI
-- Autonomia estimada: **~11 horas**
-- Código modular, expansível e documentado
+- Sistema funcional em ambiente indoor
+- Integração completa com banco de dados
+- Interface web responsiva
+- Ferramentas de análise em Power BI
+- Projeto modular e expansível
 
 ---
 
-## 🔐 Considerações Éticas e LGPD
+## 🔐 Ética e LGPD
 
-- Dados coletados apenas para fins operacionais
-- Consentimento e transparência priorizados
-- Conformidade com a **Lei Geral de Proteção de Dados (LGPD)**
+- Dados anonimizados e com finalidade definida
+- Sem rastreamento pessoal
+- Em conformidade com a LGPD
 
 ---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob os termos da [Licença MIT](https://opensource.org/licenses/MIT). Veja o arquivo [`LICENSE`](./LICENSE) para mais detalhes.
+Este projeto está licenciado sob os termos da [Licença MIT](https://opensource.org/licenses/MIT).  
+Consulte o arquivo [`LICENSE`](./LICENSE) para mais informações.
 
 ---
 
 ## 📬 Contato
 
 📧 Prof. Marco Antônio Assis de Melo — marco.melo@fei.edu.br  
-📫 Contribuições: via Pull Request ou Issues neste repositório
+📫 Contribuições: via Pull Request ou Issues
 
 ---
