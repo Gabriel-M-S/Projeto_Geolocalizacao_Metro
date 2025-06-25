@@ -25,67 +25,72 @@ O sistema identifica a posição de agentes dentro de estações do metrô com b
 
 ---
 
+## Como Configurar
+
+### 1. Alterar o ID do dispositivo (ESP32-C6)
+
+Abra o arquivo `tccfinal.ino` e localize a linha:
+
+```cpp
+String client_id = "ESP01";  // Altere para identificar o dispositivo
+```
+
+Substitua `"ESP01"` pelo nome que quiser usar, por exemplo:
+
+```cpp
+String client_id = "AGENTE_01";
+```
+
+> Esse ID será usado para identificar o agente no dashboard.
+
+---
+
+### 2. Cadastrar novos Access Points e Estações
+
+No arquivo `mqtt_receiverV2.py`, edite os seguintes dicionários:
+
+#### BSSID para nome da estação:
+
+```python
+access_points = {
+    "DE:96:70:F0:75:E1": "AP-1",
+    "02:9B:CD:05:1E:BE": "AP-2",
+    ...
+}
+```
+
+#### Coordenadas da estação:
+
+```python
+coord_lookup = {
+    "AP-1": (-23.5995, -46.7152),
+    "AP-2": (-23.6050, -46.7140),
+    ...
+}
+```
+
+> O nome da estação (ex: `"AP-1"`) deve ser o mesmo nos dois blocos.
+
+---
+
 ## Estrutura de Arquivos
 
 ```
 .
-├── .gitignore                        # Ignora arquivos desnecessários
-├── README.md                         # Este arquivo
-├── LICENSE                           # Licença MIT
-├── requirements.txt                  # Dependências Python
-├── TCC GEOLOCALIZACAO.docx           # Relatório final
-├── Apresentação_TCC_Metro_VF.pptx    # Slides
-├── METROFEI.pbix                     # Relatório Power BI
-├── Query_Criacao_Banco_de_Dados.sql  # Script SQL do banco
-├── tccfinal.ino                      # Código do ESP32-C6
-├── mqtt_receiverV4.py                # Backend que recebe dados por MQTT
-├── app_dash_mqttV9Final.py           # Dashboard com mapa e banco de dados
-├── Hardware_Geolocalização.f3z       # Esquemático do circuito
-└── dados_esps.json                   # Dados gerados em tempo de execução
+├── .gitignore
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── TCC GEOLOCALIZACAO.docx
+├── Apresentação_TCC_Metro_VF.pptx
+├── METROFEI.pbix
+├── Query_Criacao_Banco_de_Dados.sql
+├── tccfinal.ino
+├── mqtt_receiverV4.py
+├── app_dash_mqttV9Final.py
+├── Hardware_Geolocalização.f3z
+└── dados_esps.json
 ```
-
----
-
-## Componentes do Sistema
-
-- **ESP32-C6**: envia BSSID dos APs Wi-Fi via MQTT
-- **Python MQTT**: recebe e processa as mensagens
-- **Dashboard**: exibe a posição estimada dos agentes
-- **Banco de dados SQL**: armazena registros de localização
-- **Power BI**: análise dos dados e relatórios
-
----
-
-## Como Rodar
-
-1. **Receber dados dos ESPs**
-
-```bash
-python mqtt_receiverV4.py
-```
-
-2. **Executar o dashboard**
-
-```bash
-python app_dash_mqttV9Final.py
-```
-
-Acesse em: http://localhost:8050
-
-3. **Criar banco de dados (opcional)**
-
-Use o script `Query_Criacao_Banco_de_Dados.sql` com PostgreSQL ou SQLite.
-
----
-
-## Funcionalidades
-
-- Identificação da estação mais próxima com base no Wi-Fi
-- Visualização em tempo real dos agentes
-- Registro de incidentes
-- Estimativa de tempo de resposta
-- Dados salvos localmente e/ou no banco
-- Relatórios analíticos com Power BI
 
 ---
 
@@ -101,11 +106,12 @@ Use o script `Query_Criacao_Banco_de_Dados.sql` com PostgreSQL ou SQLite.
 
 ## Licença
 
-Distribuído sob a licença MIT. Veja o arquivo [`LICENSE`](LICENSE) para mais informações.
+Distribuído sob a licença MIT. Veja o arquivo [`LICENSE`](LICENSE).
 
 ---
 
 ## Contato
 
-Professor orientador: marco.melo@fei.edu.br  
-Para dúvidas ou sugestões: crie um Issue neste repositório.
+Prof. Marco Antônio Assis de Melo — marco.melo@fei.edu.br
+
+---
