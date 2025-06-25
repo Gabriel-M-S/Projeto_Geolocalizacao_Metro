@@ -112,7 +112,7 @@ Esses ícones foram escolhidos para facilitar a visualização e interpretação
 ├── README.md                         # Este arquivo
 ├── LICENSE                           # Licença MIT
 ├── requirements.txt                  # Dependências Python
-├── TCC GEOLOCALIZACAO.docx           # Relatório final
+├── TCC GEOLOCALIZACAO.pdf            # Relatório final
 ├── Apresentação_TCC_Metro_VF.pptx    # Slides
 ├── METROFEI.pbix                     # Relatório Power BI
 ├── Query_Criacao_Banco_de_Dados.sql  # Script SQL do banco
