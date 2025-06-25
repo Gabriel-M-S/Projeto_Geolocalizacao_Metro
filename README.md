@@ -73,7 +73,7 @@ coord_lookup = {
 
 ---
 
-## Como Executar o Dashboard
+## 🖥️ Como Executar o Dashboard
 
 1. **Instale as dependências**:
 
@@ -92,21 +92,19 @@ python app_dash_mqttV5FinalLogos.py
 
 ---
 
-### Personalizações:
+### 📌 Legenda da Interface
 
-- **Logos**:  
-  Coloque os arquivos `metro_logo.png` e `fei_logo.png` dentro de uma pasta chamada `assets/`.
+Abaixo, a legenda dos elementos exibidos no mapa da interface:
 
-```bash
-mkdir assets
-# copie os arquivos .png para essa pasta
-```
+![Legenda do Dashboard](legenda_dashboard.png)
 
-- **Categorização**:  
-  O dashboard permite atribuir categorias aos ESPs diretamente pela interface. Isso é salvo em `esp_categorias.json`.
+**Descrição dos ícones:**
+- **Access Point (Wi-Fi)**: marcador azul com símbolo de sinal — representa os pontos de acesso detectados via escaneamento de BSSID.
+- **Agente**: marcador vermelho escuro com ícone de pessoa — representa o dispositivo ESP32-C6 carregado por um agente em campo.
+- **Incidente**: ícone de alerta amarelo (⚠️) — indica uma ocorrência registrada pelo operador.
+- **Estação**: marcador verde com símbolo de trem — representa a localização fixa das estações do Metrô.
 
-- **Incidentes**:  
-  Também é possível registrar incidentes e visualizar o agente mais próximo para resposta.
+Esses ícones foram escolhidos para facilitar a visualização e interpretação por parte do operador, contribuindo para decisões rápidas e informadas durante a operação do sistema.
 
 ---
 
