@@ -40,19 +40,39 @@ const char* mqtt_client_id = "ESP32C6_1"; // Altere para identificar o dispositi
 
 ---
 
-### 2. Cadastrar novos Access Points e Estações
+### 2. Cadastrar Access Points e Agentes no Backend
 
-No arquivo `mqtt_receiverV2.py`, edite os seguintes dicionários:
+No arquivo `mqtt_receiverV2.py`, dois dicionários principais devem ser atualizados:
 
-#### BSSID para nome da estação:
+#### a) `access_points_detalhados`
+
+Dicionário que mapeia cada BSSID (MAC do ponto de acesso) para um nome de estação e suas coordenadas:
 
 ```python
-access_points = {
-    "DE:96:70:F0:75:E1": "AP-1",
-    "02:9B:CD:05:1E:BE": "AP-2",
+access_points_detalhados = {
+    "DE:96:70:F0:75:E1": {
+        "id": "AP-1",
+        "nome": "São Paulo-Morumbi e Jardim Guedala",
+        "coord": (-23.5995, -46.7152),
+        "bssid": "DE:96:70:F0:75:E1"
+    },
     ...
 }
 ```
+
+#### b) `nome_dispositivos`
+
+Converte o `client_id` enviado pelo ESP em um nome mais amigável para exibição:
+
+```python
+nome_dispositivos = {
+    "ESP32C6_1": "Agente_1",
+    "ESP32C6_2": "Agente_2",
+    ...
+}
+```
+
+---
 
 #### Coordenadas da estação:
 
