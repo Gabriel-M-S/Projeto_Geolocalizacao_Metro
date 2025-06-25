@@ -99,7 +99,7 @@ Abaixo, a legenda dos elementos exibidos no mapa da interface:
 - **Incidente**: ícone de alerta amarelo (⚠️) — indica uma ocorrência registrada pelo operador.
 - **Estação**: marcador vermelho com símbolo de trem — representa a localização fixa das estações do Metrô.
 - **Metrô**: marcador verde com símbolo de trem — representa o vagão em movimento.
-- 
+  
 Esses ícones foram escolhidos para facilitar a visualização e interpretação por parte do operador, contribuindo para decisões rápidas e informadas durante a operação do sistema.
 
 ---
