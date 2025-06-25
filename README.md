@@ -74,21 +74,7 @@ nome_dispositivos = {
 
 ---
 
-#### Coordenadas da estação:
-
-```python
-coord_lookup = {
-    "AP-1": (-23.5995, -46.7152),
-    "AP-2": (-23.6050, -46.7140),
-    ...
-}
-```
-
-> O nome da estação (ex: `"AP-1"`) deve ser o mesmo nos dois blocos.
-
----
-
-## 🖥️ Como Executar o Dashboard
+## Como Executar o Dashboard
 
 1. **Instale as dependências**:
 
