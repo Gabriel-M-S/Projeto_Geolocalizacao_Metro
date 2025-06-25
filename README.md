@@ -97,8 +97,9 @@ Abaixo, a legenda dos elementos exibidos no mapa da interface:
 - **Access Point (Wi-Fi)**: marcador azul com símbolo de sinal — representa os pontos de acesso detectados via escaneamento de BSSID.
 - **Agente**: marcador vermelho escuro com ícone de pessoa — representa o dispositivo ESP32-C6 carregado por um agente em campo.
 - **Incidente**: ícone de alerta amarelo (⚠️) — indica uma ocorrência registrada pelo operador.
-- **Estação**: marcador verde com símbolo de trem — representa a localização fixa das estações do Metrô.
-
+- **Estação**: marcador vermelho com símbolo de trem — representa a localização fixa das estações do Metrô.
+- **Metrô**: marcador verde com símbolo de trem — representa o vagão em movimento.
+- 
 Esses ícones foram escolhidos para facilitar a visualização e interpretação por parte do operador, contribuindo para decisões rápidas e informadas durante a operação do sistema.
 
 ---
