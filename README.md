@@ -35,7 +35,7 @@ Abra o arquivo `tccfinal.ino` e localize a linha:
 String client_id = "ESP01";  // Altere para identificar o dispositivo
 ```
 
-Substitua `"ESP01"` pelo nome que quiser usar, por exemplo:
+Substitua `"ESP01"` pelo nome desejado, por exemplo:
 
 ```cpp
 String client_id = "AGENTE_01";
@@ -73,6 +73,43 @@ coord_lookup = {
 
 ---
 
+## 🖥️ Como Executar o Dashboard
+
+1. **Instale as dependências**:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. **Execute o script**:
+
+```bash
+python app_dash_mqttV5FinalLogos.py
+```
+
+3. **Acesse o dashboard no navegador**:  
+[http://localhost:8050](http://localhost:8050)
+
+---
+
+### Personalizações:
+
+- **Logos**:  
+  Coloque os arquivos `metro_logo.png` e `fei_logo.png` dentro de uma pasta chamada `assets/`.
+
+```bash
+mkdir assets
+# copie os arquivos .png para essa pasta
+```
+
+- **Categorização**:  
+  O dashboard permite atribuir categorias aos ESPs diretamente pela interface. Isso é salvo em `esp_categorias.json`.
+
+- **Incidentes**:  
+  Também é possível registrar incidentes e visualizar o agente mais próximo para resposta.
+
+---
+
 ## Estrutura de Arquivos
 
 ```
@@ -86,8 +123,8 @@ coord_lookup = {
 ├── METROFEI.pbix
 ├── Query_Criacao_Banco_de_Dados.sql
 ├── tccfinal.ino
-├── mqtt_receiverV4.py
-├── app_dash_mqttV9Final.py
+├── mqtt_receiverV2.py
+├── app_dash_mqttV5FinalLogos.py
 ├── Hardware_Geolocalização.f3z
 └── dados_esps.json
 ```
