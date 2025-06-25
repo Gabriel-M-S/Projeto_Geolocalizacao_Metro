@@ -73,7 +73,7 @@ coord_lookup = {
 
 ---
 
-## 🖥️ Como Executar o Dashboard
+## Como Executar o Dashboard
 
 1. **Instale as dependências**:
 
