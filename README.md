@@ -32,14 +32,9 @@ O sistema identifica a posição de agentes dentro de estações do metrô com b
 Abra o arquivo `tccfinal.ino` e localize a linha:
 
 ```cpp
-String client_id = "ESP01";  // Altere para identificar o dispositivo
+const char* mqtt_client_id = "ESP32C6_1"; // Altere para identificar o dispositivo
 ```
 
-Substitua `"ESP01"` pelo nome desejado, por exemplo:
-
-```cpp
-String client_id = "AGENTE_01";
-```
 
 > Esse ID será usado para identificar o agente no dashboard.
 
