@@ -108,19 +108,19 @@ Esses ícones foram escolhidos para facilitar a visualização e interpretação
 
 ```
 .
-├── .gitignore
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── TCC GEOLOCALIZACAO.docx
-├── Apresentação_TCC_Metro_VF.pptx
-├── METROFEI.pbix
-├── Query_Criacao_Banco_de_Dados.sql
-├── tccfinal.ino
-├── mqtt_receiverV2.py
-├── app_dash_mqttV5FinalLogos.py
-├── Hardware_Geolocalização.f3z
-└── dados_esps.json
+├── .gitignore                        # Ignora arquivos desnecessários
+├── README.md                         # Este arquivo
+├── LICENSE                           # Licença MIT
+├── requirements.txt                  # Dependências Python
+├── TCC GEOLOCALIZACAO.docx           # Relatório final
+├── Apresentação_TCC_Metro_VF.pptx    # Slides
+├── METROFEI.pbix                     # Relatório Power BI
+├── Query_Criacao_Banco_de_Dados.sql  # Script SQL do banco
+├── tccfinal.ino                      # Código do ESP32-C6
+├── mqtt_receiverV4.py                # Backend que recebe dados por MQTT
+├── app_dash_mqttV9Final.py           # Dashboard com mapa e banco de dados
+├── Hardware_Geolocalização.f3z       # Esquemático do circuito
+└── dados_esps.json                   # Dados gerados em tempo de execução
 ```
 
 ---
