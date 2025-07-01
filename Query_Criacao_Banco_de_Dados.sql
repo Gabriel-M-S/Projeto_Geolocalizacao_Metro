@@ -1,45 +1,49 @@
-
-/****** Tabela de Dados Enviados pela ESP-C6 ao banco de dados constando informações de id do bssid conectado, data e hora, id do dispositivo esp e id tipo de dispositivo (atrelado a função de segurança e manutenção) ******/
-
-CREATE TABLE [dbo].[BASE_GEOLOCALIZACAO](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[id_esp_bssid] [varchar](50) NULL,
-	[data_hora] [datetime] NULL,
-	[id_dispositivo] [int] NULL,
-	[id_tipo] [varchar](50) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+-- Tabela principal de geolocalização
+CREATE TABLE informacoes_geolocalizacao (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    data_hora DATETIME NOT NULL,
+    id_dispositivo INT NOT NULL,
+    id_esp_bssid INT NOT NULL,
+    id_tipo INT NOT NULL
+);
 GO
 
-/****** Tabela De Para com Dados de Nome de Estação Atrelado ao BSSID de cada ESP-C6 ******/
-
-CREATE TABLE [dbo].[DEPARA_BSSID_ESTACAO](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[id_esp_bssid] [varchar](50) NOT NULL,
-	[nome_estacao] [varchar](100) NOT NULL,
- CONSTRAINT [PK_DEPARA_BSSID_ESTACAO] PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+-- Estoque de dispositivos
+CREATE TABLE estoque_dispositivos (
+    id_dispositivo INT PRIMARY KEY,
+    numero_serial INT NOT NULL,
+    status_ativo BIT NOT NULL
+);
 GO
 
-/****** Tabela De Para com Informações de Latitude e Longitude de Cada uma das Estações ******/
-
-
-CREATE TABLE [dbo].[ESTACAO_COORDENADAS](
-	[id] [int] IDENTITY(1,1) NOT NULL,
-	[nome_estacao] [varchar](100) NOT NULL,
-	[latitude] [float] NOT NULL,
-	[longitude] [float] NOT NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
+-- Tabela de BSSID e estações
+CREATE TABLE bssid_estacoes (
+    id_esp_bssid INT IDENTITY(1,1) PRIMARY KEY,
+    nome_estacao NVARCHAR(100) NOT NULL,
+    latitude NVARCHAR(50),
+    longitude NVARCHAR(50)
+);
 GO
 
+-- Tipo de funcionário
+CREATE TABLE tipo_de_funcionario (
+    id_tipo INT IDENTITY(1,1) PRIMARY KEY,
+    tipo_funcionario NVARCHAR(50) NOT NULL
+);
+GO
 
+-- Restrições de chave estrangeira
+ALTER TABLE informacoes_geolocalizacao
+    ADD CONSTRAINT FK_informacoes_dispositivo
+    FOREIGN KEY (id_dispositivo) REFERENCES estoque_dispositivos(id_dispositivo);
+GO
+
+ALTER TABLE informacoes_geolocalizacao
+    ADD CONSTRAINT FK_informacoes_bssid
+    FOREIGN KEY (id_esp_bssid) REFERENCES bssid_estacoes(id_esp_bssid);
+GO
+
+ALTER TABLE informacoes_geolocalizacao
+    ADD CONSTRAINT FK_informacoes_tipo
+    FOREIGN KEY (id_tipo) REFERENCES tipo_de_funcionario(id_tipo);
+GO
