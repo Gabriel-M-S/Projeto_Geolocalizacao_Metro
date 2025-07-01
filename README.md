@@ -96,7 +96,7 @@ python app_dash_mqttV5FinalLogos.py
 
 Abaixo, a legenda dos elementos exibidos no mapa da interface:
 
-![Legenda do Dashboard](legenda_dashboard.png)
+![image](https://github.com/user-attachments/assets/161aeba7-e4d4-4375-9729-ba8e70d24e2f)
 
 **Descrição dos ícones:**
 - **Access Point (Wi-Fi)**: marcador azul com símbolo de sinal — representa os pontos de acesso detectados via escaneamento de BSSID.
@@ -113,7 +113,8 @@ Esses ícones foram escolhidos para facilitar a visualização e interpretação
 
 Abaixo está o modelo relacional utilizado para persistência dos dados de geolocalização no sistema:
 
-![Modelo de Banco de Dados](diagrama_banco.png)
+![image](https://github.com/user-attachments/assets/d3b1c12e-757d-4dfd-864b-0851c2b3e246)
+
 
 **Descrição das tabelas:**
 
