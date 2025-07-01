@@ -29,12 +29,11 @@ O sistema identifica a posição de agentes dentro de estações do metrô com b
 
 ### 1. Alterar o ID do dispositivo (ESP32-C6)
 
-Abra o arquivo `tccfinal.ino` e localize a linha:
+No arquivo `tccfinal.ino`, localize a linha:
 
 ```cpp
 const char* mqtt_client_id = "ESP32C6_1"; // Altere para identificar o dispositivo
 ```
-
 
 > Esse ID será usado para identificar o agente no dashboard.
 
@@ -97,7 +96,7 @@ python app_dash_mqttV5FinalLogos.py
 
 Abaixo, a legenda dos elementos exibidos no mapa da interface:
 
-![image](https://github.com/user-attachments/assets/73997dca-daf9-4b51-ba8c-2ed991d36df3)
+![Legenda do Dashboard](legenda_dashboard.png)
 
 **Descrição dos ícones:**
 - **Access Point (Wi-Fi)**: marcador azul com símbolo de sinal — representa os pontos de acesso detectados via escaneamento de BSSID.
@@ -105,8 +104,30 @@ Abaixo, a legenda dos elementos exibidos no mapa da interface:
 - **Incidente**: ícone de alerta amarelo (⚠️) — indica uma ocorrência registrada pelo operador.
 - **Estação**: marcador vermelho com símbolo de trem — representa a localização fixa das estações do Metrô.
 - **Metrô**: marcador verde com símbolo de trem — representa o vagão em movimento.
-  
+
 Esses ícones foram escolhidos para facilitar a visualização e interpretação por parte do operador, contribuindo para decisões rápidas e informadas durante a operação do sistema.
+
+---
+
+## 🗃️ Modelo de Banco de Dados
+
+Abaixo está o modelo relacional utilizado para persistência dos dados de geolocalização no sistema:
+
+![Modelo de Banco de Dados](diagrama_banco.png)
+
+**Descrição das tabelas:**
+
+- **informacoes_geolocalizacao**  
+  Guarda os registros principais, contendo data/hora, ID do dispositivo, ID do ponto de acesso (BSSID) e tipo de agente.
+
+- **estoque_dispositivos**  
+  Lista os dispositivos cadastrados, com número de série e status de ativação.
+
+- **bssid_estacoes**  
+  Tabela com os access points (BSSID), associando-os a nomes de estações e suas coordenadas geográficas (latitude/longitude).
+
+- **tipo_de_funcionario**  
+  Define os tipos de agentes (exemplo: segurança, manutenção) para categorização e filtros no dashboard.
 
 ---
 
@@ -114,19 +135,19 @@ Esses ícones foram escolhidos para facilitar a visualização e interpretação
 
 ```
 .
-├── .gitignore                        # Ignora arquivos desnecessários
-├── README.md                         # Este arquivo
-├── LICENSE                           # Licença MIT
-├── requirements.txt                  # Dependências Python
-├── TCC GEOLOCALIZACAO.pdf            # Relatório final
-├── Apresentação_TCC_Metro_VF.pptx    # Slides
-├── METROFEI.pbix                     # Relatório Power BI
-├── Query_Criacao_Banco_de_Dados.sql  # Script SQL do banco
-├── tccfinal.ino                      # Código do ESP32-C6
-├── mqtt_receiverV4.py                # Backend que recebe dados por MQTT
-├── app_dash_mqttV9Final.py           # Dashboard com mapa e banco de dados
-├── Hardware_Geolocalização.f3z       # Esquemático do circuito
-└── dados_esps.json                   # Dados gerados em tempo de execução
+├── .gitignore
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── TCC GEOLOCALIZACAO.pdf
+├── Apresentação_TCC_Metro_VF.pptx
+├── METROFEI.pbix
+├── Query_Criacao_Banco_de_Dados.sql
+├── tccfinal.ino
+├── mqtt_receiverV2.py
+├── app_dash_mqttV5FinalLogos.py
+├── Hardware_Geolocalização.f3z
+└── dados_esps.json
 ```
 
 ---
