@@ -1,4 +1,4 @@
-[# TCC - Sistema de Geolocalização Indoor com ESP32-C6
+# TCC - Sistema de Geolocalização Indoor com ESP32-C6
 
 Trabalho de Conclusão de Curso — Engenharia Elétrica  
 Centro Universitário FEI  
@@ -174,4 +174,3 @@ Distribuído sob a licença MIT. Veja o arquivo [`LICENSE`](LICENSE).
 Prof. Marco Antônio Assis de Melo — marco.melo@fei.edu.br
 
 ---
-](https://github.com/Gabriel-M-S/Projeto_Geolocalizacao_Metro/tree/main)
