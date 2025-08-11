@@ -25,6 +25,14 @@ O sistema identifica a posição de agentes dentro de estações do metrô com b
 
 ---
 
+## Topologia do Sistema
+
+O sistema conecta diferentes dispositivos para comunicação remota no metrô, com agentes portando ESP32-C6 que enviam dados via MQTT para um servidor. O servidor processa e armazena essas informações, permitindo que o analista visualize, pelo Dash em Python, o status da linha, a proximidade dos agentes e a ocupação das estações, garantindo geolocalização indoor com atualização constante.
+
+<img width="845" height="580" alt="Arquitetura da Rede" src="https://github.com/user-attachments/assets/e99cb1bd-0f3a-4e33-8176-37be966eff74" />
+
+---
+
 ## Como Configurar
 
 ### 1. Alterar o ID do dispositivo (ESP32-C6)
