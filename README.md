@@ -35,15 +35,13 @@ O sistema conecta diferentes dispositivos para comunicação remota no metrô, c
 
 ## Como Configurar
 
-### 1. Alterar o ID do dispositivo (ESP32-C6)
+### 1. Alterar o ID do dispositivo (ESP32-C6), SSID e senha
 
-No arquivo `tccfinal.ino`, localize a linha:
-
-```cpp
-const char* mqtt_client_id = "ESP32C6_1"; // Altere para identificar o dispositivo
-```
+Após conectar o ESP32-C6 na USB, execute o programa `configuracao_esp`. Ele abrirá um terminal solicitando que você selecione a porta serial correta conectada a ESP32-C6. Após selecionar a correta, ele perguntará qual o novo ID da ESP32-C6 e será necessário informar ou caso seja mantido o mesmo ID é necessário pressionar enter. Após isso, o mesmo processo ocorrerá para SSID (nome da rede de conexão) e senha.
 
 > Esse ID será usado para identificar o agente no dashboard.
+> O SSID identifica o nome da conexão dos Acess Points.
+> A senha permitirá o acesso ao Acess Point da rede.
 
 ---
 
@@ -96,7 +94,7 @@ python app_dash_mqttV5FinalLogos.py
 ```
 
 3. **Acesse o dashboard no navegador**:  
-[http://localhost:8050](http://localhost:8050)
+[http://[localhost:8050]
 
 ---
 
@@ -104,14 +102,16 @@ python app_dash_mqttV5FinalLogos.py
 
 Abaixo, a legenda dos elementos exibidos no mapa da interface:
 
-![image](https://github.com/user-attachments/assets/161aeba7-e4d4-4375-9729-ba8e70d24e2f)
+<img width="713" height="422" alt="Legenda" src="https://github.com/user-attachments/assets/65ad5b6d-a0c8-418c-8e7c-c581ca2ead7e" />
 
 **Descrição dos ícones:**
-- **Access Point (Wi-Fi)**: marcador azul com símbolo de sinal — representa os pontos de acesso detectados via escaneamento de BSSID.
-- **Agente**: marcador vermelho escuro com ícone de pessoa — representa o dispositivo ESP32-C6 carregado por um agente em campo.
+- **Trem em movimento**: marcador verde com vagão  — representa o trem simulado em movimento.
 - **Incidente**: ícone de alerta amarelo (⚠️) — indica uma ocorrência registrada pelo operador.
+- **Dispositivo**: Ilustra todos os dispositivos ativos
+- **Dispositivo mais próximo**: marcador vermelho escuro com ícone de pessoa — representa o dispositivo ESP32-C6 carregado por um agente em campo.
+- **Sem dispositivo disponível**: Marcador que representa a ausência de dispositivos disponíveis.
 - **Estação**: marcador vermelho com símbolo de trem — representa a localização fixa das estações do Metrô.
-- **Metrô**: marcador verde com símbolo de trem — representa o vagão em movimento.
+
 
 Esses ícones foram escolhidos para facilitar a visualização e interpretação por parte do operador, contribuindo para decisões rápidas e informadas durante a operação do sistema.
 
