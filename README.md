@@ -144,19 +144,36 @@ Abaixo está o modelo relacional utilizado para persistência dos dados de geolo
 
 ```
 .
-├── .gitignore
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── TCC GEOLOCALIZACAO.pdf
-├── Apresentação_TCC_Metro_VF.pptx
-├── METROFEI.pbix
-├── Query_Criacao_Banco_de_Dados.sql
-├── tccfinal.ino
-├── mqtt_receiverV2.py
-├── app_dash_mqttV5FinalLogos.py
-├── Hardware_Geolocalização.f3z
-└── dados_esps.json
+.
+├── banco_de_dados/
+│   Query_Criacao_Banco_de_Dados.sql — Script SQL que cria as tabelas do banco de dados (geolocalização, dispositivos, BSSIDs, etc.).
+│
+├── codigo_esp/
+│   esp_programacao.ino — Código carregado no ESP32-C6. Escaneia pontos de acesso Wi-Fi e envia dados via MQTT.
+│
+├── hardware/
+│   Esquema Hardware TCC v37.f3z — Modelo CAD da versão 37 em formato do Fusion 360.
+│
+├── scripts_python/
+│   configuracao_esp.py — Permite configurar ID, SSID e senha dos dispositivos via porta serial.
+│   servidor_mqtt.py — Recebe dados enviados via MQTT pelos ESPs e trata para envio ao dash de acompanhamento
+│   dash_acompanhamento.py — Dashboard interativo que exibe em tempo real a movimentação dos agentes e status do sistema.
+│
+├── visualizacoes/
+│   METROFEI.pbix — Relatório visual desenvolvido no Power BI com análises dos dados coletados pelo sistema.
+│
+├── .gitignore  
+│   Define os arquivos/pastas que devem ser ignorados pelo controle de versão (ex: temporários, __pycache__).
+│
+├── LICENSE  
+│   Licença de uso MIT — permite reutilização, modificação e distribuição do projeto com atribuição.
+│
+├── README.md  
+│   Documentação principal do projeto. Contém informações do TCC, autores, instruções de uso, estrutura e explicações.
+│
+├── requirements.txt  
+└──    Lista de bibliotecas Python necessárias para rodar os dashboards, scripts MQTT e visualizações.
+
 ```
 
 ---
