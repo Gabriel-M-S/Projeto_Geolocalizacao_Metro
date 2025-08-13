@@ -47,7 +47,7 @@ Após conectar o ESP32-C6 na USB, execute o programa `configuracao_esp`. Ele abr
 
 ### 2. Cadastrar Access Points e Agentes no Backend
 
-No arquivo `mqtt_receiverV2.py`, dois dicionários principais devem ser atualizados:
+No arquivo `servidor_mqtt.py`, dois dicionários principais devem ser atualizados:
 
 #### a) `access_points_detalhados`
 
@@ -90,7 +90,7 @@ pip install -r requirements.txt
 2. **Execute o script**:
 
 ```bash
-python app_dash_mqttV5FinalLogos.py
+python dash_acompanhamento.py
 ```
 
 3. **Acesse o dashboard no navegador**:  
